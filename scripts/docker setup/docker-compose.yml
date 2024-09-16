@@ -1,0 +1,25 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=development
+      - SECRET_KEY=your_secret_key
+      - SQLALCHEMY_DATABASE_URI=sqlite:///site.db
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: flask_app
+    ports:
+      - "5432:5432"

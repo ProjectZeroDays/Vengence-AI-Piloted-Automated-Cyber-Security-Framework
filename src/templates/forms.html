@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Forms{% endblock %}
+{% block content %}
+<div class="container">
+    <h1>Generate Authorization Forms</h1>
+    <form id="forms-form">
+        <div class="form-group">
+            <label for="company_name">Company Name</label>
+            <input type="text" class="form-control" id="company_name" name="company_name" placeholder="Enter company name">
+        </div>
+        <button type="submit" class="btn btn-primary">Generate Forms</button>
+    </form>
+    <div id="forms-results">
+        <!-- Forms results will be displayed here -->
+    </div>
+</div>
+{% endblock %}
